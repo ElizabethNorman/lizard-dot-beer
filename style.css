@@ -20,3 +20,39 @@ main {
 .container {
     display: flex;
 }
+
+.pic {
+    border: 10px groove blue;
+    border-radius: 100px;
+    width: 250px;
+}
+
+.pic2 {
+    border: 10px dashed purple;
+    border-radius: 100px;
+    width: 250px;
+}
+
+.pic3 {
+    border: 10px ridge yellowgreen;
+    border-radius: 20px;
+    width: 250px;
+}
+
+.pic4 {
+    border: 10px outset hotpink;
+    border-radius: 120px;
+    width: 250px;
+}
+
+.pic5 {
+    border: 10px inset teal;
+    border-radius: 50px;
+    width: 250px;
+}
+
+.pic6 {
+    border: 10px double goldenrod;
+    border-radius: 75px;
+    width: 250px;
+}

@@ -1,0 +1,28 @@
+
+nav {
+  width: 200px;
+  border-right: 1px solid #333;
+  padding: 1rem;
+}
+
+nav a {
+  display: block;
+  color: #907dfc;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+}
+
+.container {
+    display: flex;
+}
+
+.pic {
+    border-color: blue;
+    border-width: 2px;
+    border-radius: 100px;
+}
