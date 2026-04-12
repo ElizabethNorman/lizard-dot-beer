@@ -1,18 +1,13 @@
 const content = document.getElementById("content");
 
-async function loadPage(page) {
+async function loadPage() {
+  const page = window.location.hash.substring(1) || "home";
   const res = await fetch(`/pages/${page}.html`);
   const html = await res.text();
   content.innerHTML = html;
 }
 
-document.querySelectorAll("nav a").forEach(link => {
-  link.addEventListener("click", e => {
-    e.preventDefault();
-    const page = link.dataset.page;
-    loadPage(page);
-  });
-});
+window.addEventListener("hashchange", loadPage);
 
 // load default page
-loadPage("home");
+loadPage();
