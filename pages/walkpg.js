@@ -79,15 +79,15 @@ async function initializeWalkPg() {
             updateModeDisplay();
     })
 
-    const modeDisplay =
-    document.getElementById(
-        "currentModeDisplay"
-    );
+    // const modeDisplay =
+    // document.getElementById(
+    //     "currentModeDisplay"
+    // );
 
-    function updateModeDisplay() {
+    // function updateModeDisplay() {
 
-    modeDisplay.textContent =
-        `Mode: ${currentMode}`;
+    // modeDisplay.textContent =
+    //     `Mode: ${currentMode}`;
 }
 
     function onEachFeature(feature, layer) {
