@@ -8,6 +8,7 @@ let progress = {
 async function initializeWalkPg() {
 
 
+    console.log("we got here");
     const progressResponse =
         await fetch('/pages/progress.json');
 
