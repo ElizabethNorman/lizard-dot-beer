@@ -4,6 +4,7 @@ const content = document.getElementById("content");
 
 async function loadPage() {
   const page = window.location.hash.substring(1) || "home";
+  console.log("Current page:", page);
   const res = await fetch(`/pages/${page}.html`);
   const html = await res.text();
   content.innerHTML = html;
