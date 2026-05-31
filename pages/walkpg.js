@@ -164,9 +164,9 @@ async function initializeWalkPg() {
         // });
     }
 
-    document
-        .getElementById("exportProgress")
-        .addEventListener("click", exportProgress);
+    // document
+    //     .getElementById("exportProgress")
+    //     .addEventListener("click", exportProgress);
 
 }
 
