@@ -9,6 +9,7 @@ async function loadPage() {
   content.innerHTML = html;
 
     if (page === "roaminglizard") {
+      console.log("calling roaming page");
         initializeWalkPg();
     }
 }
