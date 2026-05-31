@@ -93,76 +93,76 @@ async function initializeWalkPg() {
 
     function onEachFeature(feature, layer) {
 
-        layer.on('click', () => {
+        // layer.on('click', () => {
 
-            const objectId = feature.properties.OBJECTID;
+        //     const objectId = feature.properties.OBJECTID;
 
-            const walkedIndex =
-                progress.walked.indexOf(objectId);
+        //     const walkedIndex =
+        //         progress.walked.indexOf(objectId);
 
-            const excludedIndex =
-                progress.excluded.indexOf(objectId);
+        //     const excludedIndex =
+        //         progress.excluded.indexOf(objectId);
 
-            if (currentMode === "walked") {
+        //     if (currentMode === "walked") {
 
-                if (walkedIndex !== -1) {
+        //         if (walkedIndex !== -1) {
 
-                    // Already walked -> remove it
-                    progress.walked.splice(walkedIndex, 1);
+        //             // Already walked -> remove it
+        //             progress.walked.splice(walkedIndex, 1);
 
-                    layer.setStyle({
-                        color: "gray",
-                        weight: 2
-                    });
+        //             layer.setStyle({
+        //                 color: "gray",
+        //                 weight: 2
+        //             });
 
-                } else {
+        //         } else {
 
-                    // Remove from excluded if needed
-                    if (excludedIndex !== -1) {
-                        progress.excluded.splice(excludedIndex, 1);
-                    }
+        //             // Remove from excluded if needed
+        //             if (excludedIndex !== -1) {
+        //                 progress.excluded.splice(excludedIndex, 1);
+        //             }
 
-                    // Add to walked
-                    progress.walked.push(objectId);
+        //             // Add to walked
+        //             progress.walked.push(objectId);
 
-                    layer.setStyle({
-                        color: "green",
-                        weight: 4
-                    });
-                }
-            }
+        //             layer.setStyle({
+        //                 color: "green",
+        //                 weight: 4
+        //             });
+        //         }
+        //     }
 
-            if (currentMode === "excluded") {
+        //     if (currentMode === "excluded") {
 
-                if (excludedIndex !== -1) {
+        //         if (excludedIndex !== -1) {
 
-                    // Already excluded -> remove it
-                    progress.excluded.splice(excludedIndex, 1);
+        //             // Already excluded -> remove it
+        //             progress.excluded.splice(excludedIndex, 1);
 
-                    layer.setStyle({
-                        color: "gray",
-                        weight: 2
-                    });
+        //             layer.setStyle({
+        //                 color: "gray",
+        //                 weight: 2
+        //             });
 
-                } else {
+        //         } else {
 
-                    // Remove from walked if needed
-                    if (walkedIndex !== -1) {
-                        progress.walked.splice(walkedIndex, 1);
-                    }
+        //             // Remove from walked if needed
+        //             if (walkedIndex !== -1) {
+        //                 progress.walked.splice(walkedIndex, 1);
+        //             }
 
-                    // Add to excluded
-                    progress.excluded.push(objectId);
+        //             // Add to excluded
+        //             progress.excluded.push(objectId);
 
-                    layer.setStyle({
-                        color: "red",
-                        weight: 4
-                    });
-                }
-            }
+        //             layer.setStyle({
+        //                 color: "red",
+        //                 weight: 4
+        //             });
+        //         }
+        //     }
 
-            updateStats();
-        });
+        //     updateStats();
+        // });
     }
 
     document
