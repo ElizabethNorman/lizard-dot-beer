@@ -1,3 +1,5 @@
+
+
 const content = document.getElementById("content");
 
 async function loadPage() {
@@ -5,6 +7,10 @@ async function loadPage() {
   const res = await fetch(`/pages/${page}.html`);
   const html = await res.text();
   content.innerHTML = html;
+
+    if (page === "roaminglizard") {
+        initializeWalkPg();
+    }
 }
 
 window.addEventListener("hashchange", loadPage);
