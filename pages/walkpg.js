@@ -93,6 +93,8 @@ async function initializeWalkPg() {
 
     function onEachFeature(feature, layer) {
 
+        //start of where to comment out
+
         // layer.on('click', () => {
 
         //     const objectId = feature.properties.OBJECTID;
@@ -163,6 +165,9 @@ async function initializeWalkPg() {
 
         //     updateStats();
         // });
+
+        //end of where to comment out
+
     }
 
     document
@@ -187,7 +192,7 @@ function updateStats() {
             : 0;
 
     document.getElementById("stats").innerHTML = `
-        <strong>Walk PG</strong><br>
+        <strong>STATS:</strong><br>
         Walked: ${walked}<br>
         Excluded: ${excluded}<br>
         Remaining: ${walkableRoads - walked}<br>
@@ -198,6 +203,10 @@ function updateStats() {
 
 
 function exportProgress() {
+
+    const today =
+        new Date().toISOString().split('T')[0];
+
 
     const data =
         JSON.stringify(progress, null, 2);
@@ -214,7 +223,7 @@ function exportProgress() {
         document.createElement("a");
 
     a.href = url;
-    a.download = "progress.json";
+    a.download = `progress-${today}.json`;
 
     a.click();
 
