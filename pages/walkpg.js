@@ -128,7 +128,7 @@ async function initializeWalkPg() {
         //             progress.walked.push(objectId);
 
         //             layer.setStyle({
-        //                 color: "green",
+        //                 color: "blue",
         //                 weight: 4
         //             });
         //         }
