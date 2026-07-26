@@ -12,6 +12,13 @@ nav a {
   text-decoration: none;
 }
 
+.post-list {
+  max-height: 11rem;
+  overflow-y: auto;
+  padding-left: 1.25rem;
+  scrollbar-width: thin;
+}
+
 main {
   flex: 1;
   padding: 2rem;
@@ -57,3 +64,166 @@ main {
     width: 250px;
 }
 
+.pic7 {
+    border: 12px dotted tomato;
+    border-radius: 5px;
+    width: 250px;
+}
+
+.pic8 {
+    border: 14px ridge mediumorchid;
+    border-radius: 0;
+    width: 250px;
+    box-shadow: 8px 8px 0 cyan;
+}
+
+.pic9 {
+    border: 10px dashed limegreen;
+    border-radius: 40px 0 40px 0;
+    width: 250px;
+    background: yellow;
+    padding: 6px;
+}
+
+.pic10 {
+    border: 15px outset orange;
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.pic11 {
+    border: 8px double deeppink;
+    outline: 5px dotted blue;
+    border-radius: 15px;
+    width: 250px;
+    margin: 8px;
+}
+
+.pic12 {
+    border-top: 16px solid red;
+    border-right: 16px solid yellow;
+    border-bottom: 16px solid blue;
+    border-left: 16px solid lime;
+    width: 250px;
+}
+
+.pic13 {
+    border: 13px groove aqua;
+    border-radius: 0 80px 0 80px;
+    width: 250px;
+    box-shadow: -8px 8px 0 magenta;
+}
+
+.pic14 {
+    border: 10px inset silver;
+    outline: 4px solid black;
+    border-radius: 30px;
+    width: 250px;
+    filter: sepia(35%);
+}
+
+.pic15 {
+    border: 12px dashed rebeccapurple;
+    border-radius: 100px 20px;
+    width: 250px;
+    background: chartreuse;
+    padding: 5px;
+}
+
+.pic16 {
+    border: 18px ridge gold;
+    outline: 6px double darkred;
+    border-radius: 3px;
+    width: 250px;
+    box-shadow: 10px 10px 0 navy;
+    margin: 10px;
+}
+
+/* The cat photos are only pretending to sit still. */
+#content > img[class^="pic"] {
+    animation: cat-wobble 4.2s ease-in-out infinite alternate;
+    transform-origin: center;
+}
+
+#content > .pic2,
+#content > .pic5,
+#content > .pic8 {
+    animation-delay: -1.7s;
+    animation-duration: 5.1s;
+}
+
+#content > .pic3,
+#content > .pic6,
+#content > .pic9 {
+    animation-delay: -3.1s;
+    animation-duration: 3.7s;
+}
+
+#content > img[class^="pic"]:hover,
+.dvd-malcolm img:hover {
+    animation: cat-panic 0.5s linear infinite;
+    cursor: grab;
+}
+
+.dvd-zone {
+    position: relative;
+    width: min(480px, 90%);
+    height: 330px;
+    margin: 35px 0;
+    overflow: hidden;
+    border: 5px inset #aaa;
+    background: #050022;
+}
+
+.dvd-zone::before {
+    content: "DVD MALCOLM";
+    position: absolute;
+    left: 8px;
+    bottom: 5px;
+    color: lime;
+    font: bold 12px "Courier New", monospace;
+}
+
+.dvd-malcolm {
+    position: absolute;
+    animation: dvd-malcolm 7s linear infinite;
+}
+
+.dvd-malcolm .pic11 {
+    width: 150px;
+}
+
+@keyframes cat-wobble {
+    from { transform: rotate(-2deg) translateY(0); }
+    to { transform: rotate(2deg) translateY(-5px); }
+}
+
+@keyframes cat-panic {
+    0% { transform: translate(-3px, 1px) rotate(-2deg); }
+    25% { transform: translate(2px, -3px) rotate(2deg); }
+    50% { transform: translate(3px, 2px) rotate(-1deg); }
+    75% { transform: translate(-2px, -1px) rotate(3deg); }
+    100% { transform: translate(-3px, 1px) rotate(-2deg); }
+}
+
+@keyframes dvd-malcolm {
+    0% { left: 0; top: 0; }
+    24% { left: calc(100% - 185px); top: 0; }
+    25% { filter: hue-rotate(90deg); }
+    49% { left: calc(100% - 185px); top: 120px; }
+    50% { filter: hue-rotate(180deg); }
+    74% { left: 0; top: 120px; }
+    75% { filter: hue-rotate(270deg); }
+    100% { left: 0; top: 0; filter: hue-rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #content > img[class^="pic"],
+    #content > img[class^="pic"]:hover,
+    .dvd-malcolm,
+    .dvd-malcolm img:hover {
+        animation: none;
+    }
+}
