@@ -142,88 +142,133 @@ main {
 }
 
 /* The cat photos are only pretending to sit still. */
-#content > img[class^="pic"] {
-    animation: cat-wobble 4.2s ease-in-out infinite alternate;
-    transform-origin: center;
+.cat-intro h1 {
+    margin-bottom: 0;
+    color: #5944bc;
+    transform-origin: left center;
+    animation: cat-hello 700ms cubic-bezier(.2, .9, .3, 1.25) both;
 }
 
-#content > .pic2,
-#content > .pic5,
-#content > .pic8 {
-    animation-delay: -1.7s;
-    animation-duration: 5.1s;
+.cat-intro p {
+    margin-top: .35rem;
+    color: #675f7b;
 }
 
-#content > .pic3,
-#content > .pic6,
-#content > .pic9 {
-    animation-delay: -3.1s;
-    animation-duration: 3.7s;
+.cat-intro p span {
+    display: inline-block;
+    color: goldenrod;
+    animation: tiny-twinkle 3.8s ease-in-out infinite;
 }
 
-#content > img[class^="pic"]:hover,
-.dvd-malcolm img:hover {
-    animation: cat-panic 0.5s linear infinite;
+.cat-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 18px 22px;
+    margin-top: 1.75rem;
+}
+
+.cat-gallery img[class^="pic"] {
+    box-sizing: border-box;
+    max-width: 100%;
+    transform-origin: center bottom;
+    will-change: transform;
+}
+
+/* Slow swayers, gentle floaters, sleepy breathers, and two curious peekers. */
+.cat-gallery .pic,
+.cat-gallery .pic4,
+.cat-gallery .pic8 {
+    animation: cat-sway 5.8s ease-in-out infinite alternate;
+}
+
+.cat-gallery .pic2,
+.cat-gallery .pic6,
+.cat-gallery .pic11 {
+    animation: cat-float 4.9s ease-in-out infinite;
+}
+
+.cat-gallery .pic3,
+.cat-gallery .pic7,
+.cat-gallery .pic9 {
+    animation: cat-breathe 6.4s ease-in-out infinite;
+}
+
+.cat-gallery .pic5,
+.cat-gallery .pic10 {
+    animation: cat-peek 7.5s ease-in-out infinite;
+}
+
+.cat-gallery .pic4,
+.cat-gallery .pic6,
+.cat-gallery .pic9 { animation-delay: -2.1s; }
+
+.cat-gallery .pic7,
+.cat-gallery .pic10,
+.cat-gallery .pic11 { animation-delay: -4.3s; }
+
+.cat-gallery img[class^="pic"]:hover {
+    animation: cat-boop 650ms cubic-bezier(.2, .8, .3, 1.2) both;
     cursor: grab;
 }
 
-.dvd-zone {
-    position: relative;
-    width: min(480px, 90%);
-    height: 330px;
-    margin: 35px 0;
-    overflow: hidden;
-    border: 5px inset #aaa;
-    background: #050022;
+.cat-footer {
+    width: fit-content;
+    margin: 2rem auto 0;
+    color: #76669e;
+    font: italic 14px Georgia, serif;
+    animation: footer-drift 6s ease-in-out infinite alternate;
 }
 
-.dvd-zone::before {
-    content: "DVD MALCOLM";
-    position: absolute;
-    left: 8px;
-    bottom: 5px;
-    color: lime;
-    font: bold 12px "Courier New", monospace;
+@keyframes cat-hello {
+    from { opacity: 0; transform: rotate(-3deg) translateY(8px); }
+    to { opacity: 1; transform: rotate(0) translateY(0); }
 }
 
-.dvd-malcolm {
-    position: absolute;
-    animation: dvd-malcolm 7s linear infinite;
+@keyframes tiny-twinkle {
+    0%, 72%, 100% { transform: scale(1) rotate(0); opacity: .65; }
+    80% { transform: scale(1.45) rotate(18deg); opacity: 1; }
 }
 
-.dvd-malcolm .pic11 {
-    width: 150px;
+@keyframes cat-sway {
+    from { transform: rotate(-1.8deg) translateY(1px); }
+    to { transform: rotate(1.8deg) translateY(-3px); }
 }
 
-@keyframes cat-wobble {
-    from { transform: rotate(-2deg) translateY(0); }
-    to { transform: rotate(2deg) translateY(-5px); }
+@keyframes cat-float {
+    0%, 100% { transform: translateY(2px) rotate(-.7deg); }
+    50% { transform: translateY(-7px) rotate(.8deg); }
 }
 
-@keyframes cat-panic {
-    0% { transform: translate(-3px, 1px) rotate(-2deg); }
-    25% { transform: translate(2px, -3px) rotate(2deg); }
-    50% { transform: translate(3px, 2px) rotate(-1deg); }
-    75% { transform: translate(-2px, -1px) rotate(3deg); }
-    100% { transform: translate(-3px, 1px) rotate(-2deg); }
+@keyframes cat-breathe {
+    0%, 100% { transform: scale(1) rotate(.5deg); }
+    50% { transform: scale(1.025) rotate(-.5deg); }
 }
 
-@keyframes dvd-malcolm {
-    0% { left: 0; top: 0; }
-    24% { left: calc(100% - 185px); top: 0; }
-    25% { filter: hue-rotate(90deg); }
-    49% { left: calc(100% - 185px); top: 120px; }
-    50% { filter: hue-rotate(180deg); }
-    74% { left: 0; top: 120px; }
-    75% { filter: hue-rotate(270deg); }
-    100% { left: 0; top: 0; filter: hue-rotate(360deg); }
+@keyframes cat-peek {
+    0%, 68%, 100% { transform: rotate(0) translateX(0); }
+    76% { transform: rotate(2.5deg) translateX(5px); }
+    84% { transform: rotate(-1deg) translateX(-2px); }
+}
+
+@keyframes cat-boop {
+    0% { transform: scale(1) rotate(0); }
+    45% { transform: scale(.97) rotate(-2deg); }
+    75% { transform: scale(1.045) rotate(2deg); }
+    100% { transform: scale(1.025) rotate(0); }
+}
+
+@keyframes footer-drift {
+    from { transform: translateX(-5px); }
+    to { transform: translateX(5px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    #content > img[class^="pic"],
-    #content > img[class^="pic"]:hover,
-    .dvd-malcolm,
-    .dvd-malcolm img:hover {
+    .cat-intro h1,
+    .cat-intro p span,
+    .cat-gallery img[class^="pic"],
+    .cat-gallery img[class^="pic"]:hover,
+    .cat-footer {
         animation: none;
     }
 }
