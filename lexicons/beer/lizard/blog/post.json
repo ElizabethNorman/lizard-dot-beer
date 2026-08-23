@@ -1,0 +1,58 @@
+{
+  "lexicon": 1,
+  "id": "beer.lizard.blog.post",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description": "A long-form blog post published by lizard.beer.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": [
+          "title",
+          "content",
+          "createdAt"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "The title of the blog post.",
+            "maxGraphemes": 300,
+            "maxLength": 3000
+          },
+          "content": {
+            "type": "string",
+            "description": "The body of the blog post in Markdown.",
+            "maxLength": 20000
+          },
+          "summary": {
+            "type": "string",
+            "description": "A short summary or excerpt of the post.",
+            "maxGraphemes": 1000,
+            "maxLength": 10000
+          },
+          "slug": {
+            "type": "string",
+            "description": "The lizard.beer URL slug for the post.",
+            "maxLength": 500
+          },
+          "canonicalUrl": {
+            "type": "string",
+            "description": "The canonical URL of the post on lizard.beer.",
+            "format": "uri"
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "When the post was originally published.",
+            "format": "datetime"
+          },
+          "updatedAt": {
+            "type": "string",
+            "description": "When the post was most recently updated.",
+            "format": "datetime"
+          }
+        }
+      }
+    }
+  }
+}
