@@ -501,14 +501,22 @@ def publish_post(slug: str, force: bool) -> None:
     #
     # at://did/.../collection/rkey    bafy...
     parts = result.stdout.strip().split()
-
+    uri_index = next(
+        (index for index, part in enumerate(parts) if part.startswith("at://")),
+        None,
+    )
     uri = (
-        parts[0]
-        if parts
+        parts[uri_index]
+        if uri_index is not None
         else f"at://{AT_DID}/{AT_COLLECTION}/{rkey}"
     )
-
-    cid = parts[1] if len(parts) > 1 else None
+    cid = (
+        parts[uri_index + 1]
+        if uri_index is not None
+        and uri_index + 1 < len(parts)
+        and parts[uri_index + 1].startswith("bafy")
+        else None
+    )
 
     state["posts"][slug] = {
         "rkey": rkey,

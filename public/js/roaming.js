@@ -225,9 +225,14 @@ function exportProgress() {
     a.href = url;
     a.download = `progress-${today}.json`;
 
+    // Firefox needs the download link to be in the document, and revoking the
+    // blob URL immediately can cancel the download before it has started.
+    a.hidden = true;
+    document.body.appendChild(a);
     a.click();
+    a.remove();
 
-    URL.revokeObjectURL(url);
+    setTimeout(() => URL.revokeObjectURL(url), 0);
 }
 
 initializeWalkPg();
