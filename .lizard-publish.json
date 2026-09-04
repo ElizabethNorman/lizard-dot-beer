@@ -13,6 +13,13 @@
       "cid": "bafyreicmudvwyxcua7h2gynb3neff7gyxm3pow4rh4tfboirobyrgegk7y",
       "sourceHash": "0b3de8195c212bc24359b55a655b85e4da278f4be6a5ccb9323326e6c3c068c2",
       "publishedAt": "2026-08-30T06:05:07Z"
+    },
+    "2026-09-03": {
+      "rkey": "3muo3uylvyf22",
+      "uri": "at://did:plc:3hmpatr4emhvmci3tvnkiav6/beer.lizard.blog.post/3muo3uylvyf22",
+      "cid": "bafyreicbng44fnyqq3qwpyyk3g7eb673sbyzjcomuca4va7exp2pjzmidu",
+      "sourceHash": "6ae79a355f64b6ed02c39830cd8724adcc9512672bbf4480747ce306a45b9950",
+      "publishedAt": "2026-09-04T04:11:36Z"
     }
   }
 }
