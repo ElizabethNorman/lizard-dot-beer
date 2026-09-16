@@ -10,7 +10,7 @@ async function initializeWalkPg() {
 
     console.log("we got here");
     const progressResponse =
-        await fetch('/assets/data/progress.json');
+        await fetch('/assets/data/progress.json', { cache: 'no-cache' });
 
     progress =
         await progressResponse.json();
