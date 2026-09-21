@@ -3,3 +3,5 @@ __pycache__/
 *.py[cod]
 .public-build/
 /LOCAL_WORKFLOW.md
+/codex.md
+/AGENTS.md
